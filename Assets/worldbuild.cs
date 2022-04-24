@@ -51,7 +51,7 @@ public class worldbuild : MonoBehaviour
 			scriptArray[22] = " shattered memories fell-off hair and unlimited tuby void ";
 			scriptArray[23] = "The spook of shames";
 			scriptArray[24] = " ";
-			yscriptArray[25] = " Sage: Instruction on killing a ghost";
+			scriptArray[25] = " Sage: Instruction on killing a ghost";
 			scriptArray[26] = " ";
 			scriptArray[27] = "This ghost is a tricky one, a slippery spectre that spills out into everything";
 			scriptArray[28] = "Check the shadows";

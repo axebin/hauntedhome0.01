@@ -20,39 +20,41 @@ public class DialogueManager : MonoBehaviour {
 	// ive combined the dialogue trigger script with this one we probably dont need a trigger just need it to start working as soon as we entered the scene
 	void Start () {
 		sentences = new Queue<string>();
-	}
-
-	public void TriggerDialogue()
-	{
-		FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+		StartDialogue(dialogue);
 	}
 
 	public void StartDialogue (Dialogue dialogue)
 	{
-
-	
-		sentences.Clear();
-
+		Debug.Log("Started");
 		foreach (string sentence in dialogue.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
-
+	
 		DisplayNextSentence();
 	}
 
 	public void DisplayNextSentence ()
 	{
+		Debug.Log("Displaying");
+		string curText = sentences.Dequeue();
+		dialogueText.text = curText;
+
 		if (sentences.Count == 0)
 		{
+			//Reset the queue
 			EndDialogue();
 			return;
 
-			//for this one probably needs to put dialogues in a loop
-		}
+            //for this one probably needs to put dialogues in a loop
+        }
+     
 
-		//ok I'm making this up, need to say if mouse up anywhere or sth to trigger!!
-		if (Input.GetMouseButtonDown(0)) { 
+
+
+        //ok I'm making this up, need to say if mouse up anywhere or sth to trigger!!
+        if (Input.GetMouseButtonUp(0)) {
+			Debug.Log(sentences);
 			string sentence = sentences.Dequeue();
 			dialogueText.text = sentence;
 		}
